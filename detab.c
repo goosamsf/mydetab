@@ -6,7 +6,18 @@ int main(void) {
   int cnt = 0;
   int cnt_space = 0;
 
-  while ((retval = getc(stdin)) != EOF) {
+/*
+ * Case that you have to think about
+ * When getchar encounters :
+ *   1.enter key
+ *   2.tab
+ *   3.backspace
+ *   4.Regular char
+ *
+ *
+ *
+ */
+  while (feof(&(retval = getc(stdin)))) {
     if (retval == '\n'){
       printf("\n");
       continue;
