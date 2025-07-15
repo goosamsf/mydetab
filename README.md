@@ -12,7 +12,7 @@
 
 1. getchar 와 putchar의 사용법
  
-  1) getchar에 대하여
+  (1) getchar에 대하여
   - getchar의 정의에 대해 먼저 알아보자
   - man page 는 다음과 같이 정의하고 있다. 일단 getchar는 fgetc와 동일한
     기능을 제공하며 단지 인라인 매크로이다 라고 하고있으니 fgetc에
@@ -45,7 +45,7 @@
     때문이다. 즉 loop을 통해getchar 가 eof값을 반환하는지 점검해가며
     입력받은 데이터를 캐릭터단위로 끝까지 읽어내는 것이다.
     
-  2) putchar에 대하여
+  (2) putchar에 대하여
   - putchar에 대한 설명은 putc와 동일하지만 명시된 값을 stdout에
     쓰는것이라고 되어있다. 즉 터미널 화면에 바로 써준다는 것.
   - 그렇다면 fputc(int c, FILE \*stream)는 getchar을 학습한 상태라면 더
