@@ -4,7 +4,6 @@
 int main(void) {
   int retval; 
   int cnt = 0;
-  int cnt_space = 0;
 
 /*
  * Case that you have to think about
@@ -13,38 +12,28 @@ int main(void) {
  *   2.tab
  *   3.backspace
  *   4.Regular char
- *
- *
- *
  */
-  while (feof(&(retval = getc(stdin)))) {
-    if (retval == '\n'){
-      printf("\n");
-      continue;
-    }
+  while ((retval = getc(stdin)) != EOF) {
+    if(retval == '\t'){
 
-    if(retval != '\t'){
+      do {
+        putchar(' ');
+      }while((++cnt % TABSPACE) != 0);
+
+    }else if (retval == '\n' || retval == '\r'){
       putchar(retval);
-      cnt++;
-      
-    }else {
-      if (cnt >= TABSPACE){
-        cnt =0;
-      }
-      cnt_space = TABSPACE - cnt;
       cnt = 0;
+    }else if (retval == '\b'){
+      (cnt > 0) && (cnt--);
+      putchar(retval);
+    }else{
+      cnt++;
+      putchar(retval);
     }
+  }
 
-    while(cnt_space > 0 ) {
-      putchar('#');
-      cnt_space--;
-    }
-  } 
-
-  printf("This is %d \n", retval);
   return 0;
-
-}
+} 
 
 
 
